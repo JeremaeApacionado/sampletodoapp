@@ -1,0 +1,1 @@
+const mobileWith = 600;
