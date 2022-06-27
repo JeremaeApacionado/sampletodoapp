@@ -12,6 +12,7 @@ class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final currentWith = MediaQuery.of(context).size.width;
     final tabs = [
       Container(),
       Container(),
