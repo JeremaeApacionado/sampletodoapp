@@ -12,38 +12,41 @@ class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final currentWith = MediaQuery.of(context).size.width;
     final tabs = [
       Container(),
       Container(),
     ];
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF046951),
         title: Text(MyApp.title),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color(0xFF046951),
         unselectedItemColor: Colors.white.withOpacity(0.7),
-        selectedItemColor: Colors.white,
+        selectedItemColor: Color(0xFF51e8d1),
         currentIndex: selectedIndex,
         onTap: (index) => setState(() {
           selectedIndex = index;
         }),
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.fact_check_outlined),
-            label: 'Todo',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.done, size: 28),
-            label: 'Completed',
+            icon: Icon(Icons.folder, size: 28),
+            label: 'Folder',
           ),
         ],
       ),
       body: tabs[selectedIndex],
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
         ),
+        backgroundColor: Color(0xFFdeab04),
         onPressed: () {},
         child: Icon(Icons.add),
       ),
