@@ -156,8 +156,10 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 'Welcome user',
                 style: GoogleFonts.merriweather(
-                    fontSize: 20, color: Color(0xFFafeddd)),
+                    fontSize: 20, color: Color(0xFFafeddd)
+                    ),
               ),
+          
               SizedBox(height: 10),
               Text(
                 'To Do Application',
@@ -165,6 +167,8 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 10,
                 ),
               ),
+            ],
+          
               SizedBox(height: 30),
               //textfield username
               Padding(
@@ -189,6 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+          
 
               SizedBox(height: 20),
               //textfield password
