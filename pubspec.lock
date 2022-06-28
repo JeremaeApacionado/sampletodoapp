@@ -150,11 +150,7 @@ packages:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.0.15"
-=======
     version: "2.0.16"
->>>>>>> 0f9057a47294c569cc24941a5b47e816608ef29b
   path_provider_ios:
     dependency: transitive
     description:

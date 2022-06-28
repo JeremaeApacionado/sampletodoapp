@@ -27,7 +27,7 @@ class DesktopNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:20,horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Container(
         // constraints: BoxConstraints(maxWidth: 1200),
         child: Row(
@@ -37,34 +37,48 @@ class DesktopNavBar extends StatelessWidget {
               'MyTD',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.teal,
                 fontSize: 30,
               ),
             ),
+            // Text(
+            //   'Task Management',
+            //   style: TextStyle(
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.white,
+            //     fontSize: 15,
+            //   ),
+            // ),
             Row(
               children: [
                 Text(
                   'Home',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.teal),
                 ),
                 SizedBox(width: 30),
                 Text(
                   'About Us',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.teal),
                 ),
                 SizedBox(width: 30),
                 Text(
                   'To do',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.teal),
                 ),
                 SizedBox(width: 30),
-              MaterialButton(
-                color: Colors.amber,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15.0),),
-              ),
-              onPressed: (){},
-              child: Text('Get Started',style: TextStyle(color: Colors.white),),
-              ),
+                MaterialButton(
+                  color: Colors.teal,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Get Started',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             )
           ],
@@ -78,41 +92,41 @@ class MobileNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:20,horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Container(
         child: Column(
           children: <Widget>[
-              Text(
-                'MyTD',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
+            Text(
+              'MyTD',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Home',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(width: 30),
-                    Text(
-                      'About Us',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(width: 30),
-                    Text(
-                      'To do',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-              )
-            ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Home',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  SizedBox(width: 30),
+                  Text(
+                    'About Us',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  SizedBox(width: 30),
+                  Text(
+                    'To do',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
