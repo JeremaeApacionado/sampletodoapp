@@ -90,20 +90,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget buildForgotPassBtn() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () => print('Forgot Password Pressed'),
-        padding: EdgeInsets.only(right: 0),
-        child: Text(
-          'Forgot Password',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-  }
-
   Widget buildLoginBtn() {
     return Container(
       child: Center(
@@ -194,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                       buildUsername(),
                       SizedBox(height: 20),
                       buildPassword(),
-                      buildForgotPassBtn(),
+                      SizedBox(height: 20),
                       buildLoginBtn(),
                     ],
                   ),

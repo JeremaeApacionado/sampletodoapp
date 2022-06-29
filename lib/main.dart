@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simpletodo/ui/screens/front_page.dart';
+import 'package:simpletodo/ui/screens/home_page.dart';
 import 'package:simpletodo/ui/screens/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simpletodo/ui/screens/splashscreen_page.dart';
@@ -24,6 +25,6 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.teal,
         ),
-        home: SplashScreen(),
+        home: HomePage(),
       );
 }
