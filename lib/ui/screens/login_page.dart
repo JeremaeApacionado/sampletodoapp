@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:simpletodo/core/providers/user_provider.dart';
 import 'package:simpletodo/ui/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,135 +10,147 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Widget buildUsername() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Username',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 20),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26, blurRadius: 6, offset: Offset(0, 2)),
-              ]),
-          height: 60,
-          child: TextField(
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(color: Colors.black87),
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(
-                  Icons.email,
-                  color: Color(0xFF1e8f6f),
-                ),
-                hintText: 'Username',
-                hintStyle: TextStyle(color: Colors.black)),
-          ),
-        ),
-      ],
-    );
-  }
+  @override
+  Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context);
 
-  Widget buildPassword() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Password',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 20),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26, blurRadius: 6, offset: Offset(0, 2)),
-              ]),
-          height: 60,
-          child: TextField(
-            obscureText: true,
-            style: TextStyle(color: Colors.black87),
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(
-                  Icons.lock,
-                  color: Color(0xFF1e8f6f),
-                ),
-                hintText: 'Password',
-                hintStyle: TextStyle(color: Colors.black)),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget buildLoginBtn() {
-    return Container(
-      child: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Color(0xFFade0d4),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              );
-            },
-            child: Text('Login'),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildSignUpBtn() {
-    return GestureDetector(
-      onTap: () => print("Sign up Pressed"),
-      child: RichText(
-        text: TextSpan(children: [
-          TextSpan(
-            text: 'Don\'t have an account?',
+    Widget buildUsername() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Username',
             style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          TextSpan(
-              text: 'Sign Up',
+          SizedBox(height: 20),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2)),
+                ]),
+            height: 60,
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.black87),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Color(0xFF1e8f6f),
+                  ),
+                  hintText: 'Username',
+                  hintStyle: TextStyle(color: Colors.black)),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget buildPassword() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Password',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2)),
+                ]),
+            height: 60,
+            child: TextField(
+              obscureText: true,
+              style: TextStyle(color: Colors.black87),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Color(0xFF1e8f6f),
+                  ),
+                  hintText: 'Password',
+                  hintStyle: TextStyle(color: Colors.black)),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget buildLoginBtn() {
+      return Container(
+        child: Center(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFFade0d4),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: ElevatedButton(
+              onPressed: () {
+                user.username = '';
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => const HomePage(),
+                // //   ),
+                // );
+              },
+              child: Text('Login'),
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget buildSignUpBtn() {
+      return GestureDetector(
+        onTap: () => print("Sign up Pressed"),
+        child: RichText(
+          text: TextSpan(children: [
+            TextSpan(
+              text: 'Don\'t have an account?',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold))
-        ]),
-      ),
-    );
-  }
+                  fontWeight: FontWeight.bold),
+            ),
+            TextSpan(
+                text: 'Sign Up',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold))
+          ]),
+        ),
+      );
+    }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Username: ${user.username}'),
+      ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: GestureDetector(

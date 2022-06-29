@@ -45,10 +45,10 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangeDescription,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Description',
+          labelText: 'Description'
+              '',
         ),
       );
-
   Widget buildButton() => SizedBox(
         width: double.infinity,
         child: ElevatedButton(

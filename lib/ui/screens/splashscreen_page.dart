@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:simpletodo/ui/screens/front_page.dart';
+import 'package:simpletodo/ui/screens/welcomepage/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class InitState extends State<SplashScreen> {
 
   frontPageRoute() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => FrontPage()));
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   @override
